@@ -47,8 +47,8 @@ def stats(update, context):
 
 def start(update, context):
     buttons = ButtonMaker()
-    buttons.buildbutton("Repo", "https://www.github.com/anasty17/mirror-leech-telegram-bot")
-    buttons.buildbutton("Owner", "https://www.github.com/anasty17")
+    buttons.buildbutton("Channel", "https://t.me/showsarchive")
+    buttons.buildbutton("Owner", "https://t.me/xyraxelrod")
     reply_markup = buttons.build_menu(2)
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
@@ -148,7 +148,7 @@ def main():
                         chat_id, msg_id = map(int, f)
                     msg = 'Restarted Successfully!'
                 else:
-                    msg = 'Bot Restarted!'
+                    msg = '<b>Bot Restarted!</b>'
                 for tag, links in data.items():
                      msg += f"\n\n{tag}: "
                      for index, link in enumerate(links, start=1):
@@ -180,7 +180,7 @@ def main():
     elif not notifier_dict and AUTHORIZED_CHATS:
         for id_ in AUTHORIZED_CHATS:
             try:
-                bot.sendMessage(id_, "Bot Restarted!", 'HTML')
+                bot.sendMessage(id_, "<b>Bot Restarted!</b>", 'HTML')
             except Exception as e:
                 LOGGER.error(e)
 
